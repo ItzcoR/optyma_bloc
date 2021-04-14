@@ -1,0 +1,39 @@
+
+CREATE TABLE `usuarios_copy` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`email` VARCHAR(250) NOT NULL,
+	`nickname` VARCHAR(50) NOT NULL,
+	`escolaridad` VARCHAR(50) NULL DEFAULT NULL,
+	`passwrd` VARCHAR(255) NOT NULL,
+	`created_at` TIMESTAMP NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `email` (`email`),
+	UNIQUE INDEX `nickname` (`nickname`)
+)
+COMMENT='Tabla con usuarios comunes de la aplicacion\r\n'
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DYNAMIC
+AUTO_INCREMENT=18
+;
+
+CREATE TABLE `admins` (
+	`nickname` VARCHAR(50) NOT NULL DEFAULT 'id',
+	`email` VARCHAR(50) NOT NULL,
+	`passwrd` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`nickname`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+
+INSERT INTO usuarios_copy (email, nickname, escolaridad, passwrd) 
+VALUES ('itzcoatlpv@gmail.com','Itzco','Licenciatura','ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270'),
+('test1@gmail.com', 'Test', NULL, '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5'),
+('test@test.com', 'Prueba', NULL, '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5'),
+('test2@test.com', 'Prueba2', NULL, '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5');
+
+INSERT INTO usuarios_copy (email, nickname, escolaridad, passwrd, created_at) 
+VALUES ( 'frank@test.com', 'Frank', NULL, '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', NOW()),
+( 'Edd@test.com', 'Edd', NULL, '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', NOW()),
+( 'Eddy@test.com', 'Eddy', NULL, '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', NOW());
