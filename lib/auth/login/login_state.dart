@@ -3,7 +3,7 @@ class LoginState{
   final String email;
   bool get isValidemail => email.contains('@');
   final String password;
-  bool get isValidPassword => password.length > 8;   
+  bool get isValidPassword => password.length > 4;   
   final FormSubmissionStatus formStatus;
   final bool adminFlag;  
   LoginState({
